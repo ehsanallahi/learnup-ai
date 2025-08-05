@@ -4,6 +4,7 @@ import { AverageCompletedCourses } from "@/components/charts/AverageCompletedCou
 import { AverageQuizRate } from "@/components/charts/AverageQuizRate"
 import { TeammembersStatics } from "@/components/charts/TeammembersStatics"
 import { TrackingTime } from "@/components/charts/TrackingTime"
+import AdoptionRate from "@/components/AdoptionRate"
 import { Button } from "@/components/ui/button"
 
 export default function Home() {
@@ -18,8 +19,9 @@ export default function Home() {
   </div>
 
   {/* Quiz Pass/Fail Rate */}
-  <div className="bg-[#f7f8fa] rounded-2xl shadow  col-span-1">
+  <div className="bg-[#f7f8fa] col-span-1">
     {/* Replace with QuizStats component */}
+    <AdoptionRate />
   </div>
 
   
@@ -34,7 +36,7 @@ export default function Home() {
 </div>
   <div className="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-3 gap-4 py-4">
   
-
+    
 
   {/* Average Completed Courses */}
   <div className=" rounded-2xl   col-span-1 md:col-span-2 xl:col-span-1">

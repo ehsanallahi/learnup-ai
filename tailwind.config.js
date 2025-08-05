@@ -8,6 +8,7 @@ module.exports = {
       fontFamily: {
         roboto: ['Roboto', 'sans-serif'],
         sora: ['Sora', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
       },
     },
   },

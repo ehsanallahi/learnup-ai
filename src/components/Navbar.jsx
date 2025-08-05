@@ -51,7 +51,7 @@ const Navbar = () => {
                       <rect x="12.8333" y="3.6665" width="5.5" height="4.58333" rx="1" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
                       <rect x="12.8333" y="11.9165" width="5.5" height="6.41667" rx="1" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
                     </svg>
-                    <span className="text-[#414141] font-semibold font-[sora] text-[16px]">Teams</span>
+                    <span className="text-[#414141] font-semibold font-sora text-[16px]">Teams</span>
                   </Link>
                 </NavigationMenuItem>
 
@@ -65,13 +65,13 @@ const Navbar = () => {
                       <circle cx="10" cy="7.16683" r="2.83333" stroke="#083DF5" strokeLinecap="round" />
                       <path d="M4.25075 13.9592C4.78696 12.4677 6.33932 11.75 7.92427 11.75H12.0757C13.6607 11.75 15.213 12.4677 15.7492 13.9592C15.9709 14.5757 16.155 15.2985 16.2224 16.098C16.2527 16.4569 15.958 16.75 15.5978 16.75H4.40217C4.04199 16.75 3.7473 16.4569 3.77759 16.098C3.84504 15.2985 4.02913 14.5757 4.25075 13.9592Z" stroke="#083DF5" strokeLinecap="round" />
                     </svg>
-                    <span className="text-[#414141] font-semibold font-[sora] text-[16px]">Users</span>
+                    <span className="text-[#414141] font-semibold font-sora text-[16px]">Users</span>
                   </Link>
                 </NavigationMenuItem>
 
                 {/* Org Name & Members */}
                 <div className="flex flex-col pl-10">
-                  <Link href="/" className="font-bold text-[#1F1F1F] text-[18px] font-[sora]">Organization Name</Link>
+                  <Link href="/" className="font-bold text-[#1F1F1F] text-[18px] font-sora">Organization Name</Link>
                   <div className="flex">
                     <div className="text-[12px] text-[#414141] font-[Roboto]">Members:</div>
                     <div className="text-[#083DF5] text-[12px] font-[Roboto] ml-1">100</div>

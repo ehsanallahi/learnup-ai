@@ -94,9 +94,7 @@ export function TrackingTime() {
                 position: 'insideLeft',
                 offset: 15,
                 style: { textAnchor: 'middle', fill: '#999', fontSize: 12 }
-              }}
-                          
-                         />
+              }}/>
             <XAxis
               dataKey="month"
               tickLine={false}
