@@ -15,7 +15,7 @@ import React from 'react'
 const items = [
   {
     title: "Organization Analytics",
-    url: "/organization",
+    url: "/",
     icon: () => (
       <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
 <rect x="3.66669" y="3.6665" width="5.5" height="6.41667" rx="1" stroke="#F7F8FA" strokeWidth="1.5" strokeLinejoin="round"/>

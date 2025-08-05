@@ -1,7 +1,9 @@
 "use client"
 
 import { TrendingUp } from "lucide-react"
-import { CartesianGrid, Line, LineChart, XAxis } from "recharts"
+import { CartesianGrid, Line, LineChart, XAxis ,YAxis } from "recharts"
+import FilterOptions from "./FilterOptions"
+
 
 import {
   Card,
@@ -18,15 +20,17 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart"
 
+
 export const description = "A line chart with dots"
 
 const chartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 214, mobile: 140 },
+  { month: "Mon", desktop: 5, mobile: 80 },
+  { month: "Tue", desktop: 5, mobile: 200 },
+  { month: "Wed", desktop: 8, mobile: 120 },
+  { month: "Thu", desktop: 10, mobile: 190 },
+  { month: "Fri", desktop: 5, mobile: 130 },
+  { month: "Sat"  },
+  { month: "Sun" },
 ]
 
 const chartConfig = {
@@ -42,7 +46,7 @@ const chartConfig = {
 
 export function TrackingTime() {
   return (
-    <Card>
+    <Card className={'bg-[#f7f8fa]'}>
       <CardHeader>
          <CardTitle>
           <div className="flex items-center justify-between">
@@ -63,9 +67,11 @@ export function TrackingTime() {
             </div>
           </div>
         </CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
+        
       </CardHeader>
-      <CardContent>
+      <div className="flex justify-between pr-6">
+
+      <CardContent className={'pl-0 pr-6'}>
         <ChartContainer config={chartConfig}>
           <LineChart
             accessibilityLayer
@@ -76,12 +82,27 @@ export function TrackingTime() {
             }}
           >
             <CartesianGrid vertical={false} />
+            <YAxis
+                tickLine={false}
+                axisLine={false}
+                tickMargin={7}
+                 // domain={[0, 350]}
+                ticks={[1, 5, 10, 15, 20, 25, 30, 35]} 
+                label={{
+                value: 'Number of hours (h)',
+                angle: -90,
+                position: 'insideLeft',
+                offset: 15,
+                style: { textAnchor: 'middle', fill: '#999', fontSize: 12 }
+              }}
+                          
+                         />
             <XAxis
               dataKey="month"
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              tickFormatter={(value) => value.slice(0, 3)}
+              // tickFormatter={(value) => value.slice(0, 3)}
             />
             <ChartTooltip
               cursor={false}
@@ -101,8 +122,19 @@ export function TrackingTime() {
             />
           </LineChart>
         </ChartContainer>
+         <div className="flex pl-8 gap-4 mt-4">
+          <div className="flex items-center gap-2">
+            <span className="w-3 h-3 rounded-full bg-[#003CFF]"></span>
+            <span className="font-normal text-[12px] text-[#414141]">% of course content completed</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="w-3 h-3 rounded-full bg-[#7795FF]"></span>
+            <span className="text-[12px] font-[Roboto] text-[#414141]">Progress tracking over time</span>
+          </div>
+        </div>
       </CardContent>
-      
+      <FilterOptions/>
+      </div>
     </Card>
   )
 }

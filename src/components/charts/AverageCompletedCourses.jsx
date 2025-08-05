@@ -43,7 +43,7 @@ const chartConfig = {
 
 export function AverageCompletedCourses() {
   return (
-    <Card>
+    <Card className={'bg-[#f7f8fa]'}>
       <CardHeader>
        <CardTitle>
           <div className="flex items-center justify-between">
@@ -83,12 +83,12 @@ export function AverageCompletedCourses() {
         </ChartContainer>
          <div className="flex gap-4 mt-4">
           <div className="flex items-center gap-2">
-            <span className="w-3 h-3 rounded-full bg-[#003CFF]"></span>
-            <span className="font-normal text-[12px] text-[#414141]">% of course content completed</span>
+            <span className="w-3 h-3 rounded-full bg-[#7795FF]"></span>
+            <span className="font-normal text-[12px] text-[#414141]">Average time spent /learner</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="w-3 h-3 rounded-full bg-[#7795FF]"></span>
-            <span className="text-[12px] font-[Roboto] text-[#414141]">Progress tracking over time</span>
+            <span className="text-[12px] font-[Roboto] text-[#414141]">Average time spent /learner</span>
           </div>
         </div>
       </CardContent>

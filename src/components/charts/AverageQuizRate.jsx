@@ -17,7 +17,7 @@ const COLORS = ["#003CFF", "#7795FF"]
 
 export function AverageQuizRate() {
   return (
-    <Card>
+    <Card className={'bg-[#f7f8fa]'}>
       <CardHeader>
         <CardTitle>
           <div className="flex items-center">

@@ -9,7 +9,7 @@ const chartData = [
 
 export function TeammembersStatics() {
   return (
-    <Card>
+    <Card className={'bg-[#f7f8fa]'}>
       <CardHeader>
         <CardTitle>
           <div className="flex items-center">

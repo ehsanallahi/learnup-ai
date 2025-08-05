@@ -18,7 +18,7 @@ export default function Home() {
   </div>
 
   {/* Quiz Pass/Fail Rate */}
-  <div className="bg-white rounded-2xl shadow  col-span-1">
+  <div className="bg-[#f7f8fa] rounded-2xl shadow  col-span-1">
     {/* Replace with QuizStats component */}
   </div>
 
