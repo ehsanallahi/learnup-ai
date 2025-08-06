@@ -1,33 +1,36 @@
-// components/AppSidebar.jsx
+"use client"
+
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
-import React from 'react'
+
+import React from "react"
+
 const items = [
   {
     title: "Organization Analytics",
-    url: "/",
+    url: "/dashboard",
     icon: () => (
       <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
-<rect x="3.66669" y="3.6665" width="5.5" height="6.41667" rx="1" stroke="#F7F8FA" strokeWidth="1.5" strokeLinejoin="round"/>
-<rect x="3.66669" y="13.75" width="5.5" height="4.58333" rx="1" stroke="#F7F8FA" strokeWidth="1.5" strokeLinejoin="round"/>
-<rect x="12.8333" y="3.6665" width="5.5" height="4.58333" rx="1" stroke="#F7F8FA" strokeWidth="1.5" strokeLinejoin="round"/>
-<rect x="12.8333" y="11.9165" width="5.5" height="6.41667" rx="1" stroke="#F7F8FA" strokeWidth="1.5" strokeLinejoin="round"/>
+<rect x="3.66669" y="3.6665" width="5.5" height="6.41667" rx="1" stroke="#7795FF" strokeWidth="1.5" strokeLinejoin="round"/>
+<rect x="3.66669" y="13.75" width="5.5" height="4.58333" rx="1" stroke="#7795FF" strokeWidth="1.5" strokeLinejoin="round"/>
+<rect x="12.8333" y="3.6665" width="5.5" height="4.58333" rx="1" stroke="#7795FF" strokeWidth="1.5" strokeLinejoin="round"/>
+<rect x="12.8333" y="11.9165" width="5.5" height="6.41667" rx="1" stroke="#7795FF" strokeWidth="1.5" strokeLinejoin="round"/>
 </svg>
     ),
   },
   {
     title: "Team Analytics",
-    url: "#/team",
+    url: "/team",
     icon: () => (
       <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
 <circle cx="11" cy="7.3335" r="2" stroke="#7795FF" strokeWidth="1.5" strokeLinecap="round"/>
@@ -52,8 +55,8 @@ const items = [
   },
   {
     title: "Learning Analytics",
-    url: ".learning",
-     icon: () => (
+    url: "/learning",
+    icon: () => (
       <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
 <rect x="3.66669" y="2.75" width="14.6667" height="16.5" rx="2" fill="#7795FF"/>
 <path d="M7.79169 5.9585L14.2084 5.9585" stroke="#F7F8FA" strokeLinecap="round"/>
@@ -66,7 +69,7 @@ const items = [
   {
     title: "Feedback Plan Analytics",
     url: "/feedback",
-       icon: () => (
+     icon: () => (
       <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
 <path d="M15 0.750007V0.750007C16.5188 0.750006 17.75 1.98122 17.75 3.5L17.75 5.46429C17.75 5.73084 17.75 5.86412 17.7005 5.96694C17.6513 6.06899 17.569 6.15134 17.4669 6.20048C17.3641 6.25 17.2308 6.25 16.9643 6.25L12.25 6.25M15 0.750007V0.750007C13.4812 0.750006 12.25 1.98122 12.25 3.5L12.25 6.25M15 0.750007L5.25 0.750006C3.36438 0.750006 2.42157 0.750006 1.83579 1.33579C1.25 1.92158 1.25 2.86439 1.25 4.75001L1.25 17.25L4 16.3333L6.75 17.25L9.5 16.3333L12.25 17.25L12.25 6.25" stroke="#7795FF" strokeWidth="1.5"/>
 </svg>
@@ -75,7 +78,7 @@ const items = [
   {
     title: "Report List",
     url: "/report",
-     icon: () => (
+    icon: () => (
       <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
 <rect x="4.58331" y="3.6665" width="12.8333" height="15.5833" rx="2" stroke="#7795FF" strokeWidth="1.5"/>
 <path d="M8.25 8.25H13.75" stroke="#7795FF" strokeWidth="1.5" strokeLinecap="round"/>
@@ -84,33 +87,45 @@ const items = [
 </svg>
     ),
   },
-];
+]
+
 const AppSidebar = () => {
+  const pathname = usePathname()
+
   return (
     <div className="mt-60">
-    <Sidebar>
-      <SidebarContent>
-        <SidebarGroup>
-         
-          <SidebarGroupContent>
-            <div className="mt-24">
-            <SidebarMenu>
-              {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <a href={item.url}>
-                      <item.icon />
-                      <span className="text-">{item.title}</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-            </div>
-          </SidebarGroupContent>
-        </SidebarGroup>
-      </SidebarContent>
-    </Sidebar>
+      <Sidebar>
+        <SidebarContent>
+          <SidebarGroup>
+            <SidebarGroupContent>
+              <div className="mt-24">
+                <SidebarMenu>
+                 {items.map((item) => {
+  const pathname = usePathname()
+  const isActive = pathname === item.url
+
+  return (
+    <SidebarMenuItem key={item.title}>
+      <SidebarMenuButton asChild>
+        <Link
+          href={item.url}
+          className={`flex items-center gap-2 px-3 py-2 rounded-md transition-colors duration-200 ${
+            isActive ? "bg-blue-500" : ""
+          }`}
+        >
+          <item.icon />
+          <span>{item.title}</span>
+        </Link>
+      </SidebarMenuButton>
+    </SidebarMenuItem>
+  )
+})}
+                </SidebarMenu>
+              </div>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        </SidebarContent>
+      </Sidebar>
     </div>
   )
 }

@@ -22,15 +22,15 @@ export function TeammembersStatics() {
         </CardTitle>
       </CardHeader>
 
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-6 pt-5">
         {chartData.map((item, i) => (
           <div key={i}>
             <p className="text-xs text-muted-foreground mb-1">
               % of team members who have {item.label.toLowerCase()} a course
             </p>
-            <div className="relative bg-gray-200 h-5 rounded-full">
+            <div className="relative bg-gray-200 h-10 rounded-full">
               <div
-                className={`absolute top-0 left-0 h-5 rounded-full text-white text-xs font-semibold flex items-center justify-end pr-2`}
+                className={`absolute top-0 left-0 h-10 rounded-full text-white text-xs font-semibold flex items-center justify-end pr-2`}
                 style={{
                   width: `${item.value}%`,
                   backgroundColor: item.label === "Started" ? "#7795FF" : "#003CFF",

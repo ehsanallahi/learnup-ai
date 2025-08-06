@@ -55,8 +55,8 @@ export function AverageCompletedCourses() {
             </svg>
             </div>
             <div>
-                 <span className="text-base font-semibold text-[#414141] text-[12px] pr-2">Daily</span>
-                  <span className="text-base font-light text-[16px] font-[Roboto] text-[#414141] pr-2">/ Week</span>
+                 <span className="text-base font-semibold text-[#414141] font-sora text-[12px] pr-2">Daily</span>
+                  <span className="text-base font-light text-[12px] font-roboto text-[#414141] pr-2">/ Week</span>
             </div>
           </div>
         </CardTitle>
@@ -84,11 +84,11 @@ export function AverageCompletedCourses() {
          <div className="flex gap-4 mt-4">
           <div className="flex items-center gap-2">
             <span className="w-3 h-3 rounded-full bg-[#7795FF]"></span>
-            <span className="font-normal text-[12px] text-[#414141]">Average time spent /learner</span>
+            <span className="font-normal font-roboto text-[12px] text-[#414141]">% of course content completed</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="w-3 h-3 rounded-full bg-[#7795FF]"></span>
-            <span className="text-[12px] font-[Roboto] text-[#414141]">Average time spent /learner</span>
+            <span className="text-xs font-normal font-Roboto text-[#414141]">Progress tracking over time</span>
           </div>
         </div>
       </CardContent>

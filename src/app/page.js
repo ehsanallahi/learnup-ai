@@ -13,7 +13,7 @@ export default function Home() {
     <div className="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-3 gap-4 ">
   {/* Team members statistics */}
   <TeammembersStatics/>
-  <div className=" rounded-2xl shadow  col-span-1">
+  <div className=" rounded-2xl   col-span-1">
     {/* Replace with TeamStats component */}
     <AverageQuizRate/>
   </div>
