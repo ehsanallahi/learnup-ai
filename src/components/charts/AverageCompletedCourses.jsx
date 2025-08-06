@@ -52,9 +52,12 @@ export function AverageCompletedCourses() {
             <span className="text-base font-semibold text-[#1F1F1F] text-[12px] pr-1">Average completed courses</span>
             <ToolTip text="Average completed courses Information" />
             </div>
-            <div>
-                 <span className="text-base font-semibold text-[#414141] font-sora text-[12px] pr-2">Daily</span>
-                  <span className="text-base font-light text-[12px] font-roboto text-[#414141] pr-2">/ Week</span>
+            <div  className="flex items-center gap-0.5 ">
+                 <span className="text-base font-sora font-semibold text-[#414141] text-[12px] ">Daily</span>
+                 <span className="text-base font-roboto font-light text-[#414141] text-[12px] ">/ Week</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none">
+<path d="M1 9L5 5L1 1" stroke="#414141" strokeWidth="0.666667" strokeLinecap="round"/>
+</svg>
             </div>
           </div>
         </CardTitle>

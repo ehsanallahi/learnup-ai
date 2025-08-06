@@ -55,9 +55,18 @@ export function TrackingTime() {
             <span className="text-base font-semibold text-[#1F1F1F] text-[12px] pr-1">Tracking Time, Frequency & Focus</span>
             <ToolTip text="Tracking Time, Frequency & Focus information" />
             </div>
-            <div>
-                 <span className="text-base font-semibold text-[#414141] text-[12px] pr-2">Daily</span>
-                  <span className="text-base font-light text-[16px] font-[Roboto] text-[#414141] pr-2">/ Week</span>
+            <div  className="flex items-center gap-0.5 ">
+                 <span className="text-base font-sora font-semibold text-[#414141] text-[12px] ">Daily</span>
+                 <span className="text-base font-roboto font-light text-[#414141] text-[12px] ">/ Week</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none">
+<path d="M1 9L5 5L1 1" stroke="#414141" strokeWidth="0.666667" strokeLinecap="round"/>
+</svg>
+            </div>
+            <div className="flex items-center">
+                 <span className="text-base font-semibold text-[#414141] text-[12px] pr-2">Average Time</span>
+                 <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none">
+<path d="M1 9L5 5L1 1" stroke="#414141" strokeWidth="0.666667" strokeLinecap="round"/>
+</svg>
             </div>
           </div>
         </CardTitle>
