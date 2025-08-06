@@ -21,11 +21,11 @@ const items = [
     url: "/dashboard",
     icon: () => (
       <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
-<rect x="3.66669" y="3.6665" width="5.5" height="6.41667" rx="1" stroke="#7795FF" strokeWidth="1.5" strokeLinejoin="round"/>
-<rect x="3.66669" y="13.75" width="5.5" height="4.58333" rx="1" stroke="#7795FF" strokeWidth="1.5" strokeLinejoin="round"/>
-<rect x="12.8333" y="3.6665" width="5.5" height="4.58333" rx="1" stroke="#7795FF" strokeWidth="1.5" strokeLinejoin="round"/>
-<rect x="12.8333" y="11.9165" width="5.5" height="6.41667" rx="1" stroke="#7795FF" strokeWidth="1.5" strokeLinejoin="round"/>
-</svg>
+        <rect x="3.66669" y="3.6665" width="5.5" height="6.41667" rx="1" stroke="#7795FF" strokeWidth="1.5" strokeLinejoin="round" />
+        <rect x="3.66669" y="13.75" width="5.5" height="4.58333" rx="1" stroke="#7795FF" strokeWidth="1.5" strokeLinejoin="round" />
+        <rect x="12.8333" y="3.6665" width="5.5" height="4.58333" rx="1" stroke="#7795FF" strokeWidth="1.5" strokeLinejoin="round" />
+        <rect x="12.8333" y="11.9165" width="5.5" height="6.41667" rx="1" stroke="#7795FF" strokeWidth="1.5" strokeLinejoin="round" />
+      </svg>
     ),
   },
   {
@@ -100,19 +100,16 @@ const AppSidebar = () => {
             <SidebarGroupContent>
               <div className="mt-24">
                 <SidebarMenu>
-                 {items.map((item) => {
-  const pathname = usePathname()
+                  {items.map((item) => {
   const isActive = pathname === item.url
 
   return (
-    <SidebarMenuItem key={item.title}>
+    <SidebarMenuItem
+      key={item.title}
+      className={isActive ? "bg-blue-500 text-white rounded" : "hover:bg-[#EDEDED] text-muted-foreground"}
+    >
       <SidebarMenuButton asChild>
-        <Link
-          href={item.url}
-          className={`flex items-center gap-2 px-3 py-2 rounded-md transition-colors duration-200 ${
-            isActive ? "bg-blue-500" : ""
-          }`}
-        >
+        <Link href={item.url} className="flex items-center gap-2 px-3 py-2 rounded-md w-full">
           <item.icon />
           <span>{item.title}</span>
         </Link>
@@ -120,6 +117,7 @@ const AppSidebar = () => {
     </SidebarMenuItem>
   )
 })}
+
                 </SidebarMenu>
               </div>
             </SidebarGroupContent>
