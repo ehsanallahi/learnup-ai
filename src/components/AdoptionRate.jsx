@@ -1,5 +1,5 @@
 "use client";
-
+import { Bold, Italic, Underline } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Button } from "./ui/button";
@@ -12,41 +12,57 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Toggle } from "@/components/ui/toggle"
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
+
 
 export default function AdoptionRateCard() {
   return (
     <div className="">
-    <div className="flex justify-end  ">
-    
-    <DropdownMenu>
-  <DropdownMenuTrigger>
-    <div className="flex justify-between">
-    <span className="text-[12px] font-inter border-black">Export options</span>
-    <svg className="p-0.5" xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6" fill="none">
-    <path d="M1 1L5 5L9 1" stroke="#1F1F1F" strokeLinecap="round"/>
-    </svg>
-    </div>
-  </DropdownMenuTrigger>
-  <DropdownMenuContent>
-    <DropdownMenuLabel className={'text-xs font-inter'}>Select format:</DropdownMenuLabel>
-    <DropdownMenuSeparator />
-    <div className="flex justify-between">
-    <DropdownMenuItem>
-      <Toggle>CSV</Toggle>
-    </DropdownMenuItem>
-    <DropdownMenuItem>
-       <Toggle>PDF</Toggle>
-    </DropdownMenuItem>
-   </div>
-   <DropdownMenuItem className={'justify-center'}>
-       <Button variant={'outline'} className={'bg-[#083DF5] '}>
-        <span className="text-white">Export</span>
+    <div className="flex justify-end   ">
+    <div className="mr-2">
+  <DropdownMenu>
+    <DropdownMenuTrigger>
+      <div className="flex space-x-2.5 items-center py-1.5 border rounded-sm border-[#1F1F1F] h-[34px] w-[133px] px-2.5">
+        <span className="text-[12px] font-inter border-black">Export options</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6" fill="none">
+          <path d="M1 1L5 5L9 1" stroke="#1F1F1F" strokeLinecap="round" />
+        </svg>
+      </div>
+    </DropdownMenuTrigger>
+
+    <DropdownMenuContent>
+      <DropdownMenuLabel className="text-xs font-inter">Select format:</DropdownMenuLabel>
+      <DropdownMenuSeparator />
+
+      {/* Instead of DropdownMenuItem, use div to prevent auto-close */}
+      <div className="pl-2.5 py-1">
+        <ToggleGroup variant="outline" type="multiple">
+          <ToggleGroupItem value="csv" aria-label="Toggle CSV">
+            <p className="text-sm font-normal font-inter">CSV</p>
+          </ToggleGroupItem>
+
+          <ToggleGroupItem value="pdf" aria-label="Toggle PDF">
+            <p className="text-sm font-normal font-inter">PDF</p>
+          </ToggleGroupItem>
+        </ToggleGroup>
+      </div>
+
+      {/* Only Export button should close the menu */}
+      <DropdownMenuItem className="justify-center">
+        <Button
+          className="bg-[#083DF5]"
+          onClick={() => {
+            // Perform export here
+            // Dropdown will auto-close
+          }}
+        >
+          <span className="text-white font-normal text-xs font-inter">Export</span>
         </Button>
-    </DropdownMenuItem>
-   
-  </DropdownMenuContent>
-</DropdownMenu>
+      </DropdownMenuItem>
+    </DropdownMenuContent>
+  </DropdownMenu>
+</div>
+
      <Button   size="sm" className="font-normal  font-[Inter] bg-[#083DF5]">  
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
 <path d="M9.33329 10L6.66663 12.6667L9.33329 15.3333" stroke="#F7F8FA" strokeWidth="1.5"/>
@@ -54,14 +70,14 @@ export default function AdoptionRateCard() {
 <path d="M6.66671 6L9.33337 3.33333L6.66671 0.666667" stroke="#F7F8FA" strokeWidth="1.5"/>
 <path d="M3.95859 10.3332C3.549 9.62375 3.33337 8.81901 3.33337 7.99984C3.33337 7.18067 3.549 6.37593 3.95859 5.6665C4.36817 4.95708 4.95728 4.36797 5.66671 3.95839C6.37613 3.5488 7.18087 3.33317 8.00004 3.33317" stroke="#F7F8FA" strokeWidth="1.5" strokeLinecap="round"/>
 </svg>
-      <span className="text-[12px]">Refresh page</span>
+      <span className="text-xs">Refresh page</span>
       
     </Button>
     </div>
     <div className="flex justify-end text-[10px] pt-1 pb-2">
-  <div className="flex flex-col items-end leading-tight">
-    <p>Last update at 3:00PM</p>
-    <p>06.06.2025</p>
+  <div className="flex flex-col items-end leading-tight ">
+    <p className="font-roboto  text-[10px] font-normal">Last update at 3:00PM</p>
+    <p className="font-roboto text-[10px] font-normal">06.06.2025</p>
   </div>
 </div>
 
