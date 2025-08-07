@@ -30,27 +30,37 @@ export default function AdoptionRateCard() {
       </div>
     </DropdownMenuTrigger>
 
-    <DropdownMenuContent>
-      <DropdownMenuLabel className="text-xs font-inter">Select format:</DropdownMenuLabel>
+    <DropdownMenuContent className={'bg-[#F7F8FA] w-[180px] '}>
+      <DropdownMenuLabel className="text-xs font-inter">Select format :</DropdownMenuLabel>
       <DropdownMenuSeparator />
 
       {/* Instead of DropdownMenuItem, use div to prevent auto-close */}
-      <div className="pl-2.5 py-1">
-        <ToggleGroup variant="outline" type="multiple">
-          <ToggleGroupItem value="csv" aria-label="Toggle CSV">
-            <p className="text-sm font-normal font-inter">CSV</p>
-          </ToggleGroupItem>
+      <div className=" py-1 ">
+        <ToggleGroup variant="outline" type="multiple" className="flex ">
+  <ToggleGroupItem
+    value="csv"
+    aria-label="Toggle CSV"
+    className="w-[80px] data-[state=on]:bg-[#E4E4E4] data-[state=on]:text-[#414141]"
+  >
+    <p className="text-sm font-normal font-inter">CSV</p>
+  </ToggleGroupItem>
 
-          <ToggleGroupItem value="pdf" aria-label="Toggle PDF">
-            <p className="text-sm font-normal font-inter">PDF</p>
-          </ToggleGroupItem>
-        </ToggleGroup>
+  <ToggleGroupItem
+    value="pdf"
+    aria-label="Toggle PDF"
+    className="w-[80px] data-[state=on]:bg-[#E4E4E4] data-[state=on]:text-[#414141]"
+  >
+    <p className="text-sm font-normal font-inter">PDF</p>
+  </ToggleGroupItem>
+</ToggleGroup>
+
+
       </div>
 
       {/* Only Export button should close the menu */}
       <DropdownMenuItem className="justify-center">
-        <Button
-          className="bg-[#083DF5]"
+        <Button 	
+          className="bg-[#083DF5] w-full h-10"
           onClick={() => {
             // Perform export here
             // Dropdown will auto-close

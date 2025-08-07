@@ -41,12 +41,12 @@ export default function FilterOptions() {
       <CustomCheckbox
         id="team"
         label="Show per total team"
-        disabled={true}
+        disabled={false}
       />
       <CustomCheckbox
         id="both"
         label="Show both"
-        disabled={true}
+        disabled={false}
       />
     </div>
   );
