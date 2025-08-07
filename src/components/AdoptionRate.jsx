@@ -21,8 +21,8 @@ export default function AdoptionRateCard() {
     <div className="flex justify-end   ">
     <div className="mr-2">
   <DropdownMenu>
-    <DropdownMenuTrigger>
-      <div className="flex space-x-2.5 items-center py-1.5 border rounded-sm border-[#1F1F1F] h-[34px] w-[133px] px-2.5">
+    <DropdownMenuTrigger >
+      <div className="flex space-x-2.5 items-center cursor-pointer py-1.5 border rounded-sm border-[#1F1F1F] h-[34px] w-[133px] px-2.5">
         <span className="text-[12px] font-inter border-black">Export options</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6" fill="none">
           <path d="M1 1L5 5L9 1" stroke="#1F1F1F" strokeLinecap="round" />
@@ -66,14 +66,14 @@ export default function AdoptionRateCard() {
             // Dropdown will auto-close
           }}
         >
-          <span className="text-white font-normal text-xs font-inter">Export</span>
+          <span className="text-white font-normal text-xs cursor-pointer font-inter">Export</span>
         </Button>
       </DropdownMenuItem>
     </DropdownMenuContent>
   </DropdownMenu>
 </div>
 
-     <Button   size="sm" className="font-normal  font-[Inter] bg-[#083DF5]">  
+     <Button   size="sm" className="font-normal cursor-pointer font-[Inter] bg-[#083DF5]">  
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
 <path d="M9.33329 10L6.66663 12.6667L9.33329 15.3333" stroke="#F7F8FA" strokeWidth="1.5"/>
 <path d="M12.0414 5.66683C12.451 6.37625 12.6666 7.18099 12.6666 8.00016C12.6666 8.81933 12.451 9.62407 12.0414 10.3335C11.6318 11.0429 11.0427 11.632 10.3333 12.0416C9.62387 12.4512 8.81913 12.6668 7.99996 12.6668" stroke="#F7F8FA" strokeWidth="1.5" strokeLinecap="round"/>
