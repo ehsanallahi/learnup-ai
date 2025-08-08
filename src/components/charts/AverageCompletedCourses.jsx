@@ -66,7 +66,7 @@ export function AverageCompletedCourses() {
       <CardContent>
         <ChartContainer config={chartConfig}>
           <BarChart accessibilityLayer data={chartData}>
-            <CartesianGrid vertical={false} />
+            <CartesianGrid vertical={false} />z
             <XAxis
               dataKey="day"
               tickLine={false}

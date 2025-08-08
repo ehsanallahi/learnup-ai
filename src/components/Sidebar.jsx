@@ -111,7 +111,7 @@ function MenuList({ onNavigate }) {
             key={item.title}
             className={
               isActive
-                ? "rounded-md bg-[#7795FF] text-white"
+                ? "rounded-md bg-[#083DF599] text-white"
                 : "rounded-md text-muted-foreground hover:bg-[#EDEDED]"
             }
           >
@@ -171,7 +171,7 @@ const AppSidebar = () => {
       {/* Desktop / tablet: sticky sidebar */}
       <div className="hidden md:block">
         <div className="sticky top-16 h-[calc(100dvh-4rem)]">
-          <Sidebar className="h-full">
+          <Sidebar className="h-full  mt-18">
             <SidebarContent>
               <SidebarGroup>
                 <SidebarGroupContent className="py-4">

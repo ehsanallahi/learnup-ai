@@ -192,7 +192,7 @@ export function TrackingTime() {
           <div className="flex ml-6 pl-10 gap-4 mt-4">
             {selectedFilter === "learner" && (
               <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-full bg-[#003CFF]"></span>
+                <span className="w-3 h-3 rounded-full bg-[#7795FF]"></span>
                 <span className="font-normal text-[12px] text-[#414141]">
                   Average time per learner
                 </span>
@@ -200,7 +200,7 @@ export function TrackingTime() {
             )}
             {selectedFilter === "team" && (
               <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-full bg-[#7795FF]"></span>
+                <span className="w-3 h-3 rounded-full bg-[#083DF5]"></span>
                 <span className="font-normal text-[12px] text-[#414141]">
                   Average time spent /total team
                 </span>
@@ -209,13 +209,13 @@ export function TrackingTime() {
             {selectedFilter === "both" && (
               <>
                 <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-[#003CFF]"></span>
+                  <span className="w-3 h-3 rounded-full bg-[#7795FF]"></span>
                   <span className="font-normal text-[12px] text-[#414141]">
                     Average time learner
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-[#7795FF]"></span>
+                  <span className="w-3 h-3 rounded-full bg-[#083DF5]"></span>
                   <span className="font-normal text-[12px] text-[#414141]">
                     Average time total team
                   </span>
