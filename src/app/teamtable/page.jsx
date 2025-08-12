@@ -6,7 +6,25 @@ async function getData() {
   return [
     {
       id: "u1a9f2d",
-      fname: "Alice Johnson",
+      fname: (
+        <div className="flex items-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 61 61"
+            fill="none"
+            className="rounded-full object-cover"
+          >
+            <circle cx="30.5" cy="30.5" r="23.5" fill="#7795FF" />
+            <path
+              d="M36.8467 23.3594V39H34.7627L26.8887 26.9365V39H24.8154V23.3594H26.8887L34.7949 35.4551V23.3594H36.8467Z"
+              fill="#F7F8FA"
+            />
+          </svg>
+          Alice Johnson
+        </div>
+      ),
       coursesenrolled: 4,
       percentcompleted: "75%",
       currentcourses: ["3"],
@@ -17,7 +35,25 @@ async function getData() {
     },
     {
       id: "m3x8k4z",
-      fname: "Michael Smith",
+      fname: (
+        <div className="flex items-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 61 61"
+            fill="none"
+            className="rounded-full object-cover"
+          >
+            <circle cx="30.5" cy="30.5" r="23.5" fill="#7795FF" />
+            <path
+              d="M36.8467 23.3594V39H34.7627L26.8887 26.9365V39H24.8154V23.3594H26.8887L34.7949 35.4551V23.3594H36.8467Z"
+              fill="#F7F8FA"
+            />
+          </svg>
+          Michael Smith
+        </div>
+      ),
       coursesenrolled: 6,
       percentcompleted: "60%",
       currentcourses: ["3"],
@@ -28,7 +64,25 @@ async function getData() {
     },
     {
       id: "s7h5p1b",
-      fname: "Sophia Lee",
+      fname: (
+        <div className="flex items-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 61 61"
+            fill="none"
+            className="rounded-full object-cover"
+          >
+            <circle cx="30.5" cy="30.5" r="23.5" fill="#7795FF" />
+            <path
+              d="M36.8467 23.3594V39H34.7627L26.8887 26.9365V39H24.8154V23.3594H26.8887L34.7949 35.4551V23.3594H36.8467Z"
+              fill="#F7F8FA"
+            />
+          </svg>
+          Sophia Lee
+        </div>
+      ),
       coursesenrolled: 3,
       percentcompleted: "90%",
       currentcourses: ["3"],
@@ -39,7 +93,25 @@ async function getData() {
     },
     {
       id: "d4q6r9t",
-      fname: "David Brown",
+      fname: (
+        <div className="flex items-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 61 61"
+            fill="none"
+            className="rounded-full object-cover"
+          >
+            <circle cx="30.5" cy="30.5" r="23.5" fill="#7795FF" />
+            <path
+              d="M36.8467 23.3594V39H34.7627L26.8887 26.9365V39H24.8154V23.3594H26.8887L34.7949 35.4551V23.3594H36.8467Z"
+              fill="#F7F8FA"
+            />
+          </svg>
+          David Brown
+        </div>
+      ),
       coursesenrolled: 5,
       percentcompleted: "45%",
       currentcourses: ["3"],
@@ -50,7 +122,25 @@ async function getData() {
     },
     {
       id: "e8v2m6n",
-      fname: "Emma Wilson",
+      fname: (
+        <div className="flex items-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 61 61"
+            fill="none"
+            className="rounded-full object-cover"
+          >
+            <circle cx="30.5" cy="30.5" r="23.5" fill="#7795FF" />
+            <path
+              d="M36.8467 23.3594V39H34.7627L26.8887 26.9365V39H24.8154V23.3594H26.8887L34.7949 35.4551V23.3594H36.8467Z"
+              fill="#F7F8FA"
+            />
+          </svg>
+          Emma Wilson
+        </div>
+      ),
       coursesenrolled: 2,
       percentcompleted: "100%",
       currentcourses: ["3"],
