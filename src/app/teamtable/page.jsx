@@ -25,7 +25,7 @@ async function getData() {
           Alice Johnson
         </div>
       ),
-      coursesenrolled: 4,
+      coursesenrolled: "4 courses",
       percentcompleted: "75%",
       currentcourses: ["3"],
       lastactivedate: "2025-08-10",
@@ -54,7 +54,7 @@ async function getData() {
           Michael Smith
         </div>
       ),
-      coursesenrolled: 6,
+      coursesenrolled: "6 courses",
       percentcompleted: "60%",
       currentcourses: ["3"],
       lastactivedate: "2025-08-09",
@@ -83,7 +83,7 @@ async function getData() {
           Sophia Lee
         </div>
       ),
-      coursesenrolled: 3,
+      coursesenrolled: "3 courses",
       percentcompleted: "90%",
       currentcourses: ["3"],
       lastactivedate: "2025-08-11",
@@ -112,7 +112,7 @@ async function getData() {
           David Brown
         </div>
       ),
-      coursesenrolled: 5,
+      coursesenrolled: "5 courses",
       percentcompleted: "45%",
       currentcourses: ["3"],
       lastactivedate: "2025-08-07",
@@ -141,7 +141,7 @@ async function getData() {
           Emma Wilson
         </div>
       ),
-      coursesenrolled: 2,
+      coursesenrolled: "2 courses",
       percentcompleted: "100%",
       currentcourses: ["3"],
       lastactivedate: "2025-08-05",

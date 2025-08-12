@@ -3,46 +3,93 @@
 import {
   flexRender,
   getCoreRowModel,
-  getFilteredRowModel,
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { ArrowUpDown, MoreHorizontal } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { useMemo, useState } from "react";
 import { Input } from "@/components/ui/input";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Button } from "@/components/ui/button";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
 export function DataTable({ columns, data }) {
   const [sorting, setSorting] = useState([]);
   const [globalFilter, setGlobalFilter] = useState("");
 
+  // 1) Filter data client-side (robust across arrays/objects/JSX)
+  const filteredData = useMemo(() => {
+    const q = String(globalFilter ?? "").trim().toLowerCase();
+    if (!q) return data;
+
+    return data.filter((row) => {
+      // check any accessorKey on columns
+      return columns.some((col) => {
+        const key = col.accessorKey;
+        if (!key) return false; // skip non-data columns like actions
+
+        const raw = row[key];
+
+        if (raw == null) return false;
+
+        // arrays -> join
+        if (Array.isArray(raw)) {
+          return raw.join(" ").toLowerCase().includes(q);
+        }
+
+        // objects -> try stringify
+        if (typeof raw === "object") {
+          try {
+            return JSON.stringify(raw).toLowerCase().includes(q);
+          } catch {
+            return false;
+          }
+        }
+
+        // primitives
+        return String(raw).toLowerCase().includes(q);
+      });
+    });
+  }, [data, columns, globalFilter]);
+
+  // 2) Create table with filtered data (sorting still handled by TanStack)
   const table = useReactTable({
-    data,
+    data: filteredData,
     columns,
     state: {
       sorting,
-      globalFilter,
     },
     onSortingChange: setSorting,
-    onGlobalFilterChange: setGlobalFilter,
     getCoreRowModel: getCoreRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
     getSortedRowModel: getSortedRowModel(),
   });
 
   return (
     <div>
-      {/* Search & Filter */}
+      {/* Search & Sort controls */}
       <div className="flex items-center justify-between py-4">
+        {/* Search box with icon on the right */}
         <div className="relative max-w-sm w-full">
           <Input
             placeholder="Search..."
-            value={globalFilter ?? ""}
+            value={globalFilter}
             onChange={(e) => setGlobalFilter(e.target.value)}
-            className="pr-10" // padding to make space for the icon
+            className="pr-10"
+            aria-label="Search table"
           />
           <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-[#7795FF]">
+            {/* your search SVG */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="18"
@@ -64,18 +111,55 @@ export function DataTable({ columns, data }) {
             </svg>
           </div>
         </div>
-        <Button
-                variant="outline"
-                onClick={() =>
-                  column.toggleSorting(column.getIsSorted() === "asc")
-                }
+
+        {/* Sort Dropdown - only show columns that have accessorKey (data columns) */}
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline">
+              Sort
+              <svg
+                className="ml-2 h-4 w-4"
+                xmlns="http://www.w3.org/2000/svg"
+                width="10"
+                height="5"
+                viewBox="0 0 10 5"
+                fill="none"
               >
-                Sort
-                {/* <ArrowUpDown className="ml-2 h-4 w-4" /> */}
-                <svg className="ml-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="10" height="5" viewBox="0 0 10 5" fill="none">
-<path d="M1 0.500001L5 4.5L9 0.5" stroke="#414141" stroke-width="0.666667" stroke-linecap="round"/>
-</svg>
-              </Button>
+                <path
+                  d="M1 0.500001L5 4.5L9 0.5"
+                  stroke="#414141"
+                  strokeWidth="0.666667"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </Button>
+          </DropdownMenuTrigger>
+
+          <DropdownMenuContent align="end">
+            {columns
+              .filter((c) => c.accessorKey) // only data columns
+              .map((c) => (
+                <div key={c.accessorKey}>
+                  <DropdownMenuItem
+                    onClick={() => {
+                      const col = table.getColumn(c.accessorKey);
+                      if (col) col.toggleSorting(false); // ascending
+                    }}
+                  >
+                    {typeof c.header === "string" ? c.header : c.accessorKey} (Asc)
+                  </DropdownMenuItem>
+                  <DropdownMenuItem
+                    onClick={() => {
+                      const col = table.getColumn(c.accessorKey);
+                      if (col) col.toggleSorting(true); // descending
+                    }}
+                  >
+                    {typeof c.header === "string" ? c.header : c.accessorKey} (Desc)
+                  </DropdownMenuItem>
+                </div>
+              ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
 
       {/* Table */}
@@ -94,29 +178,29 @@ export function DataTable({ columns, data }) {
               </TableRow>
             ))}
           </TableHeader>
-          <TableBody>
-  {table.getRowModel().rows?.length ? (
-    table.getRowModel().rows.map((row, index) => (
-      <TableRow
-        key={row.id}
-        className={index % 2 === 0 ? "bg-[#EEF1FA]" : "bg-[#F7F8FA]"}
-      >
-        {row.getVisibleCells().map((cell) => (
-          <TableCell key={cell.id}>
-            {flexRender(cell.column.columnDef.cell, cell.getContext())}
-          </TableCell>
-        ))}
-      </TableRow>
-    ))
-  ) : (
-    <TableRow>
-      <TableCell colSpan={columns.length} className="h-24 text-center">
-        No results.
-      </TableCell>
-    </TableRow>
-  )}
-</TableBody>
 
+          <TableBody>
+            {table.getRowModel().rows?.length ? (
+              table.getRowModel().rows.map((row, index) => (
+                <TableRow
+                  key={row.id}
+                  className={index % 2 === 0 ? "bg-[#EEF1FA]" : "bg-[#F7F8FA]"}
+                >
+                  {row.getVisibleCells().map((cell) => (
+                    <TableCell key={cell.id}>
+                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))
+            ) : (
+              <TableRow>
+                <TableCell colSpan={columns.length} className="h-24 text-center">
+                  No results.
+                </TableCell>
+              </TableRow>
+            )}
+          </TableBody>
         </Table>
       </div>
     </div>

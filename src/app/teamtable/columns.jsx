@@ -14,17 +14,18 @@ import {
 export const columns = [
   {
     accessorKey: "fname",
-    header: ({ column }) => (
-      <Button
-        variant="ghost"
-        onClick={() =>
-          column.toggleSorting(column.getIsSorted() === "asc")
-        }
-      >
-        Full name
-        <ArrowUpDown className="ml-2 h-4 w-4" />
-      </Button>
-    ),
+    header: "Full name",
+    // header: ({ column }) => (
+    //   <Button
+    //     variant="ghost"
+    //     onClick={() =>
+    //       column.toggleSorting(column.getIsSorted() === "asc")
+    //     }
+    //   >
+    //     Full name
+    //     <ArrowUpDown className="ml-2 h-4 w-4" />
+    //   </Button>
+    // ),
     cell: ({ row }) => {
       const name = row.getValue("fname");
       return (
@@ -34,6 +35,10 @@ export const columns = [
       );
     },
   },
+  //  {
+  //   accessorKey: "fname",
+  //   header: "Full name",
+  // },
   {
     accessorKey: "coursesenrolled",
     header: "Courses enrolled",
